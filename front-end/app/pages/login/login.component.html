@@ -1,0 +1,55 @@
+<div class="align">
+  <div class="container" #container>
+    <div class="form-container sign-up-container">
+      <form (ngSubmit)="createAccount(signUpForm)" #signUpForm="ngForm">
+        <h1>Create Account</h1>
+        <input type="text" placeholder="Name" name="name" ngModel required />
+        <input type="email" placeholder="Email" name="email" ngModel required />
+        <input
+          type="password"
+          placeholder="Password"
+          name="password"
+          ngModel
+          required
+        />
+        <button style="cursor: pointer;" type="submit" (click)="togglePanel(true)">Registrar-se</button>
+      </form>
+    </div>
+
+    <div class="form-container sign-in-container">
+      <form (ngSubmit)="signIn(signInForm)" #signInForm="ngForm">
+        <h1>Sign in</h1>
+        <input type="email" placeholder="Email" name="email" ngModel required />
+        <input
+          type="password"
+          placeholder="Password"
+          name="password"
+          ngModel
+          required
+        />
+        <button style="cursor: pointer;" type="submit" (click)="togglePanel(false)">Entrar</button>
+      </form>
+    </div>
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1>Bem-vindo de volta!</h1>
+          <p>
+            Para continuar conectado conosco, faça login com suas informações
+            pessoais
+          </p>
+          <button style="cursor: pointer;" class="ghost" id="signInButton" (click)="togglePanel(false)">
+            Entrar
+          </button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h1>Olá</h1>
+          <p>Insira seus dados pessoais e comece sua jornada</p>
+          <button style="cursor: pointer;" class="ghost" id="signUpButton" (click)="togglePanel(true)">
+            Registrar-se
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

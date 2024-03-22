@@ -1,0 +1,77 @@
+<div class="container">
+  <h1 mat-dialog-title>Adicionar Produto</h1>
+  <div mat-dialog-content>
+    <form class="example-form" [formGroup]="vendaForm">
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Cliente</mat-label>
+        <mat-select formControlName="idCliente">
+          <mat-option *ngFor="let cliente of clientes" [value]="cliente.idCliente">{{ cliente.nmCliente }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Produto</mat-label>
+        <mat-select formControlName="idProduto">
+          <mat-option *ngFor="let produto of produtos" [value]="produto.idProduto">{{ produto.dscProduto }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Data e Hora da Venda</mat-label>
+        <input matInput [matDatepicker]="picker" placeholder="Escolha uma data e hora" formControlName="dthVenda">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Quantidade Vendida</mat-label>
+        <input
+          matInput
+          placeholder="Quantidade Vendida"
+          formControlName="qtdVenda"
+          name="qtdVenda"
+          pattern="^[0-9,]*$"
+          (input)="calcularTotal()"
+        />
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Valor Unitário</mat-label>
+        <input
+          matInput
+          placeholder="Valor Unitário"
+          formControlName="vlrUnitarioVenda"
+          name="vlrUnitarioVenda"
+          pattern="^[0-9,]*$"
+          (input)="calcularTotal()"
+        />
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Valor Total da Venda</mat-label>
+        <input
+          matInput
+          placeholder="Valor Total da Venda"
+          formControlName="vlrTotalVenda"
+          name="vlrTotalVenda"
+          pattern="^[0-9,]*$"
+          [value]="vendaForm?.get('vlrTotalVenda')?.value"
+          [disabled]="true"
+        />
+      </mat-form-field>
+    </form>
+  </div>
+  <div mat-dialog-actions class="container-button">
+    <button mat-button (click)="close()">Cancelar</button>
+    @if (data.situation === 'edit') {
+    <button mat-raised-button color="primary" (click)="adicionarProduto()">
+      Editar
+    </button>
+    }@else {
+    <button mat-raised-button color="primary" (click)="adicionarProduto()">
+      Adicionar
+    </button>
+    }
+  </div>
+</div>

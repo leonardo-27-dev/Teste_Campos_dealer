@@ -1,0 +1,31 @@
+<mat-toolbar class="background">
+  <div class="left">
+    <span>Teste Campos Dealer</span>
+  </div>
+  <div class="middle">
+    <button mat-icon-button routerLink="/clientes">
+      <mat-icon>person</mat-icon>
+    </button>
+    <span>Clientes</span>
+    <button mat-icon-button routerLink="/produtos">
+      <mat-icon>local_mall</mat-icon>
+    </button>
+    <span>Produtos</span>
+    <button mat-icon-button routerLink="/vendas">
+      <mat-icon>shopping_cart</mat-icon>
+    </button>
+    <span>Vendas</span>
+  </div>
+  <div class="right">
+    <div class="div-api">
+      <button mat-icon-button (click)="chamaAPiExterna()">
+        <mat-icon>download</mat-icon>
+      </button>
+      <span>Carregar Dados da API</span>
+    </div>
+    <button mat-icon-button (click)="logout()">
+      <mat-icon>logout</mat-icon>
+    </button>
+    <span>Sair</span>
+  </div>
+</mat-toolbar>

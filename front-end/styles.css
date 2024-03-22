@@ -1,0 +1,35 @@
+html {
+  height: 100vh;
+  font-size: 62.5%;
+}
+
+mat-card {
+  width: 80%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 4rem;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.input-box {
+  width: 500px;
+}
+
+.btn-box {
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-box button {
+  width: 50%;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

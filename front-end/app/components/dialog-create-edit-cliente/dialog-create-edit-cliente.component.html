@@ -1,0 +1,38 @@
+<div class="container">
+  <h1 mat-dialog-title>Adicionar Cliente</h1>
+  <div mat-dialog-content>
+    <form class="example-form" [formGroup]="clienteForm">
+      <mat-form-field class="example-full-width">
+        <mat-label>Nome do Cliente</mat-label>
+        <input
+          matInput
+          placeholder="Nome do Cliente"
+          formControlName="nome"
+          name="cliente"
+        />
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Nome da Cidade</mat-label>
+        <input
+          matInput
+          placeholder="Nome da Cidade"
+          formControlName="cidade"
+          name="cidade"
+        />
+      </mat-form-field>
+    </form>
+  </div>
+  <div mat-dialog-actions class="container-button">
+    <button mat-button (click)="close()">Cancelar</button>
+    @if (data.situation === 'edit') {
+      <button mat-raised-button color="primary" (click)="adicionarCliente()">
+        Editar
+      </button>
+    }@else {
+      <button mat-raised-button color="primary" (click)="adicionarCliente()">
+        Adicionar
+      </button>
+    }
+  </div>
+</div>

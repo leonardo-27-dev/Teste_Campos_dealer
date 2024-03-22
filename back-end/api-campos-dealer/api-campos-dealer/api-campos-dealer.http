@@ -1,0 +1,6 @@
+@api_campos_dealer_HostAddress = http://localhost:5067
+
+GET {{api_campos_dealer_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

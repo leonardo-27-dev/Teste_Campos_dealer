@@ -1,0 +1,79 @@
+<app-header></app-header>
+<mat-card>
+  <mat-toolbar class="background">
+      <span>Vendas</span>
+  </mat-toolbar>
+
+  <mat-table [dataSource]="data">
+    <ng-container matColumnDef="nmCliente">
+      <mat-header-cell *matHeaderCellDef>Cliente</mat-header-cell>
+      <mat-cell *matCellDef="let data">{{ data.nmCliente }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="nmProduto">
+      <mat-header-cell *matHeaderCellDef>Produto</mat-header-cell>
+      <mat-cell *matCellDef="let data">{{ data.nmProduto }}</mat-cell>
+    </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="qtdVenda">
+      <mat-header-cell *matHeaderCellDef>Quantidade Vendida</mat-header-cell>
+      <mat-cell *matCellDef="let data">{{ data.qtdVenda }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="vlrUnitarioVenda">
+      <mat-header-cell *matHeaderCellDef>Valor Unitario</mat-header-cell>
+      <mat-cell *matCellDef="let data">R$ {{ data.vlrUnitarioVenda.toFixed(2).replace('.', ',') }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="dthVenda">
+      <mat-header-cell *matHeaderCellDef>Data e Hora da Venda</mat-header-cell>
+      <mat-cell *matCellDef="let data">{{ formatDate(data.dthVenda) }}</mat-cell>
+    </ng-container>
+
+    <!-- Category Column -->
+    <ng-container matColumnDef="vlrTotalVenda">
+      <mat-header-cell *matHeaderCellDef>Valor Total</mat-header-cell>
+      <mat-cell *matCellDef="let data">
+        R$ {{ data.vlrTotalVenda.toFixed(2).replace('.', ',') }}
+      </mat-cell>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef class="action-column">
+        <button
+          mat-mini-fab
+          color="accent"
+          aria-label="Adicionar uma venda"
+          (click)="onAdd()"
+          class="action-column-header"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let data" class="action-column">
+        <button
+          mat-icon-button
+          color="primary"
+          aria-label="Editar uma venda"
+          (click)="onEdit(data)"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+
+        <button
+          mat-icon-button
+          color="warn"
+          aria-label="Remover uma venda"
+          (click)="onDelete(data)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" ></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+</mat-card>

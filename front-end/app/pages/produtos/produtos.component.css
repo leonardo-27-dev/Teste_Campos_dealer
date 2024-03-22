@@ -1,0 +1,25 @@
+.mat-table {
+  overflow: auto;
+  max-height: 600px;
+}
+
+.action-column {
+  flex: 0 0 125px;
+}
+
+.action-column-header {
+  margin: 0 auto;
+}
+
+table {
+  width: 100%;
+}
+
+.background {
+  background: linear-gradient(to right, #ff4b2b, #ff416c);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px 15px 0px 0px;
+}
